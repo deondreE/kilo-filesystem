@@ -5,11 +5,14 @@ On Linux, mac, and windows the file explorer expierence is terrible. Often thing
 
 ## steps to run the project.
 
-1. clone the repository
-
-2. ```bash make setup```
-
-3. ```make all```
+```bash
+ #step 1
+ git clone "<repo link>"
+ # step 2
+ make setup
+ # step 3
+ make <platform to build to>
+```
 
 # General Information 
 
