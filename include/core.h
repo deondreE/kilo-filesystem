@@ -6,8 +6,4 @@
 #include <sys/stat.h>
 
 // File Handle Struct
-typedef struct {
-    FILE *file;
-
-    int is_dir; // could have files inside of it. 
-} FileHandle;
+void list_files(const char *basepath);
