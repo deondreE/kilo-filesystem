@@ -34,7 +34,7 @@
     #if TARGET_IPHONE_SIMULATOR
       #error "IOS SIM not supported"
     // iOS
-    #elif TARGET_OS_PHONE
+    #elif TARGET_OS_IPHONE
       #erorr "IPhone Not Supported!"
     #elif TARGET_OS_MAC
       // other kinds of mac
