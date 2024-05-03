@@ -9,11 +9,4 @@
 #include <sys/stat.h>
 
 #include "platform/platform.h"
-
-// File Handle Struct
-// typedef struct {
-//     FILE *file;
-
-//     int is_dir; // could have files inside of it. 
-// } FileHandle;
-
+#include "log.h"
