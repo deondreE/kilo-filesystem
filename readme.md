@@ -9,9 +9,7 @@ On Linux, mac, and windows the file explorer expierence is terrible. Often thing
  #step 1
  git clone "<repo link>"
  # step 2
- make setup
- # step 3
- make <platform to build to>
+ make all # This will detect your platform eventually.
 ```
 
 # General Information 
