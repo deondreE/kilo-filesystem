@@ -1,7 +1,7 @@
 //
 //
 //
-import SwfitUI
+import SwiftUI
 
 @main
 struct kiloApp: App {

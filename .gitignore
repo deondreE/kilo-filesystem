@@ -53,3 +53,7 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# xCode stuff and things
+.DS_Store
+*.xcodeproj/

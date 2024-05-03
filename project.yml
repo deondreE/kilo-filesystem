@@ -1,19 +1,27 @@
+# XCodegen file for generating macOS build target, for the swift
+# frontend.
 name: kilo
-include:
-options: 
-  bundleIdPrefix: com.test.app
-packages:
+configs:
+  Debug: debug
+  Beta: release
+  AppStore: release
+options:
+  bundleIdPrefix: com.kilo.app
+  deploymentTarget:
+    macOS: "14.4"
 targets:
   kilo:
     type: application
     platform: macOS
-    deployment: "10.0"
-    sources: [macOS]
+    deploymentTarget: "14.4"
+    sources: [src]
+    dependencies:
+      - sdk: SwiftUI.framework
+      - sdk: Combine.framework
     settings:
-      configs: 
-        debug: 
-          CUSTOM_BUILD_SETTING: my_debug_value
-        release:
-          CUSTOM_BUILD_SETTING: my_release_value
-  dependencies:
- 
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: com.kilo.app
+      entitlements:
+        com.apple.security.app-sandbox: true
+        com.apple.security.network-client: true
