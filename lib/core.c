@@ -1,3 +1,5 @@
+#include "../include/core.h"
+
 void list_files(const char *basepath) {
     struct dirent *dp;
     DIR *dir = opendir(basepath);
