@@ -1,5 +1,8 @@
-#include "include/core.h"
+#include "../include/core.h"
 
-void main(void) {
-  printf("test");
-}
+int main(void) { printf("test"); }
+
+// directory -- files inside .... 
+// 0 0 0 0 0
+// 0 0 0 0 0 
+// 0 0 0 0 0 

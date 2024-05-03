@@ -1,0 +1,19 @@
+name: kilo
+include:
+options: 
+  bundleIdPrefix: com.test.app
+packages:
+targets:
+  kilo:
+    type: application
+    platform: macOS
+    deployment: "10.0"
+    sources: [macOS]
+    settings:
+      configs: 
+        debug: 
+          CUSTOM_BUILD_SETTING: my_debug_value
+        release:
+          CUSTOM_BUILD_SETTING: my_release_value
+  dependencies:
+ 
