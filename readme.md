@@ -23,3 +23,14 @@ We also take advantage of XCodeGen to generate the project for all user, on the 
 Yes swift works on windows, and linux.
 
 The backend of the filesystem is written in C/C++ / Objective-C for somethings on the mac operating system.
+
+## Project structure
+
+The strucure of this project is as follows:
+
+lib: is the core of the fileeditor
+include: is all the header files that lib requires.
+tests: is a in house testing suite for lib.
+src: is the core SwiftUI frontend swift.
+
+`Note: You will need to either emulate, or run the application on your core system.`

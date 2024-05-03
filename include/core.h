@@ -5,9 +5,11 @@
 #include <string.h>
 #include <sys/stat.h>
 
+
 // File Handle Struct
 typedef struct {
     FILE *file;
 
     int is_dir; // could have files inside of it. 
 } FileHandle;
+

@@ -1,29 +1,49 @@
-
-# gcc or clang haven't decided
 CC = gcc
+CFLAGS = -Wall -Wextra -g
+LIBS = -lm
 
-CFLAGS := -Wall -Werorr -Wextra
+# Directory structure
+SRC_DIR = lib
+INC_DIR = include
+BUILD_DIR = build
+LIB_DIR = lib
+TEST_DIR = tests
 
-BUILD_DIR = build/
+# Source files
+LIB_SRCS = $(wildcard $(SRC_DIR)/*.c)
+TEST_SRCS = $(wildcard $(TEST_DIR)/*.c)
 
-# platform dependent, .dylib mac, .a linux, .dll windows.
-LIB = test.a
-INC = -Iinclude
+# Object files
+LIB_OBJS = $(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, $(LIB_SRCS))
+TEST_OBJS = $(patsubst $(TEST_DIR)/%.c, $(BUILD_DIR)/%.o, $(TEST_SRCS))
 
-SRCS =	$(wildcard lib/*.c)
+# Library name
+LIB_NAME = kilo
+# Executable name
+TEST_EXEC = kilo_filesystem
 
-OBJS = $(pathsubst src/%.c, build/%.c, $(SRCS))
+.PHONY: all clean
 
-build/%.o: lib/%.c | build
-	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+all: $(BUILD_DIR) $(LIB_DIR) $(BUILD_DIR)/$(LIB_NAME).a $(BUILD_DIR)/$(TEST_EXEC)
 
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)
 
-.PHONY: clean
+$(LIB_DIR):
+	mkdir -p $(LIB_DIR)
 
-$(LIB): $(OBJS)
+$(BUILD_DIR)/$(LIB_NAME).a: $(LIB_OBJS)
 	ar rcs $@ $^
 
-build: 
-	mkdir -p build
-clean: 
-	rm -rf $(BUILD_DIR)/*
+$(BUILD_DIR)/$(TEST_EXEC): $(TEST_OBJS) $(BUILD_DIR)/$(LIB_NAME).a
+	$(CC) $(CFLAGS) -o $@ $^ $(LIBS)
+
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
+	$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
+
+$(BUILD_DIR)/%.o: $(TEST_DIR)/%.c
+	$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
+
+clean:
+	rm -rf $(BUILD_DIR)
+
