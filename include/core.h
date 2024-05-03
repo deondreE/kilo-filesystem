@@ -8,6 +8,8 @@
 #include <time.h>
 #include <sys/stat.h>
 
+#include "platform/platform.h"
+
 // File Handle Struct
 // typedef struct {
 //     FILE *file;
