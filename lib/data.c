@@ -1,7 +1,7 @@
 #include "../include/data.h"
 
 // see: https://pubs.opengroup.org/onlinepubs/7990989775/xsh/readdir.html
-KAPI KILOFILE* index_dir_structure(const char* basepath) {
+KILOFILE* index_dir_structure(const char* basepath) {
   KILOFILE* file = NULL;
   
   // read the users current active directory for right now
@@ -22,4 +22,12 @@ KAPI KILOFILE* index_dir_structure(const char* basepath) {
   closedir(dr);
 
   return file;
+}
+
+void write_cache_file(KILOFILE file) {
+  return;
+}
+
+void read_cache_file(const char* path) {
+  return;
 }

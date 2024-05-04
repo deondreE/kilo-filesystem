@@ -1,6 +1,8 @@
 #include "./core.h"
 #include <dirent.h>
 
+#define PIN 0
+
 // this will be returned per parent that is read.
 typedef struct {
   DIR* dir;
@@ -13,7 +15,11 @@ typedef struct {
 
 // Indexing the dir structures returns a large subset of data.
 // takes the user home directory and traverses it.
+// This will also create the cache file it it doesn't exist.
 KAPI KILOFILE* index_dir_structure(const char* basepath);
 
 // write the cache file to not have to read all directories again.
 void write_cache_file(KILOFILE file);
+
+// read the cache file inside from the given path.
+void read_cache_file(const char* path);
