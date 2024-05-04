@@ -18,6 +18,8 @@ targets:
     dependencies:
       - sdk: SwiftUI.framework
       - sdk: Combine.framework
+      - sdk: build/kilo.dylib
+        root: build
     settings:
       base:
         GENERATE_INFOPLIST_FILE: YES

@@ -22,9 +22,22 @@ LIB_NAME = kilo
 # Executable name
 TEST_EXEC = kilo_filesystem
 
+# check the platform
+UNAME_S := $(shell uname -s)
+
+ifeq ($(UNAME_S), Darwin)
+# macOS
+LIB_EXT := dylib
+LDFLAGS := -dynamiclib
+else
+# Linux 
+LIB_EXT := a
+LDFLAGS := 
+endif
+
 .PHONY: all clean
 
-all: $(BUILD_DIR) $(LIB_DIR) $(BUILD_DIR)/$(LIB_NAME).a $(BUILD_DIR)/$(TEST_EXEC)
+all: $(BUILD_DIR) $(LIB_DIR) $(BUILD_DIR)/$(LIB_NAME).$(LIB_EXT) $(BUILD_DIR)/$(TEST_EXEC)
 
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
@@ -32,10 +45,10 @@ $(BUILD_DIR):
 $(LIB_DIR):
 	mkdir -p $(LIB_DIR)
 
-$(BUILD_DIR)/$(LIB_NAME).a: $(LIB_OBJS)
+$(BUILD_DIR)/$(LIB_NAME).$(LIB_EXT): $(LIB_OBJS)
 	ar rcs $@ $^
 
-$(BUILD_DIR)/$(TEST_EXEC): $(TEST_OBJS) $(BUILD_DIR)/$(LIB_NAME).a
+$(BUILD_DIR)/$(TEST_EXEC): $(TEST_OBJS) $(BUILD_DIR)/$(LIB_NAME).$(LIB_EXT)
 	$(CC) $(CFLAGS) -o $@ $^ $(LIBS)
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
