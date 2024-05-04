@@ -5,7 +5,7 @@
             "name": "Debug with GDB",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/your_executable",
+            "program": "${workspaceFolder}/bulid/kilo_filesystem",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
@@ -20,13 +20,13 @@
                 }
             ],
             "preLaunchTask": "gcc build",
-            "miDebuggerPath": "/path/to/your/gdb"
+            "miDebuggerPath": "/usr/bin/gdb"
         },
         {
             "name": "Debug with MSVC",
             "type": "cppvsdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/your_executable.exe",
+            "program": "${workspaceFolder}/build/kilo_filesystem.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
