@@ -1,9 +1,7 @@
 import SwiftUI
 import Foundation
 
-struct SidebarView: View {
-  var test = index_dir_structure("test");
-  
+struct SidebarView: View {  
   var body: some View {
     VStack {
       Text("Hello Sidebar")
