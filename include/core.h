@@ -7,6 +7,9 @@
 #include <string.h>
 #include <time.h>
 #include <sys/stat.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <stddef.h>
 
 #include "platform/platform.h"
 #include "log.h"
