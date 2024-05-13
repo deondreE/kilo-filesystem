@@ -1,9 +1,5 @@
 
-.. C hosts a direct route that the swift frontend looks for.
-.. C Allows the http server to be exteremly efficient, and allows for swift to not have to do too much heavy lifting.
-.. C should run in the background of the applciation hosting a service, to make sure the plafrom can get its files.
-
-.. offline you read from a cache file.
-
-3. Swift App connecting to the C backend.
-4. Start directory indexing.
+1. C directory surfing.
+2. C http network connection + maybe RPC library through swift.
+3. Make sure that swift can work on linux if not, create a `window.h` file for that window to open.
+4. Swift frontend.

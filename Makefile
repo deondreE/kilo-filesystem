@@ -1,5 +1,4 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -g
 LIBS = -lm
 
 # Directory structure
@@ -29,10 +28,12 @@ ifeq ($(UNAME_S), Darwin)
 # macOS
 LIB_EXT := dylib
 LDFLAGS := -dynamiclib
+CFLAGS := -Wall -Wextra -g
 else
 # Linux 
 LIB_EXT := a
-LDFLAGS := 
+LDFLAGS :=  
+CFLAGS := -Wall -Wextra -g -lX11 # add native linux window management.
 endif
 
 .PHONY: all clean
